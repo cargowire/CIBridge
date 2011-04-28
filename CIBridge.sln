@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIBridge.Web", "CIBridge.Web\CIBridge.Web.csproj", "{04AC726D-E44D-4B07-9767-D903AB6A84FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargowire.CIBridge", "Cargowire.CIBridge\Cargowire.CIBridge.csproj", "{C3160A9C-4296-4003-976B-9371520F9799}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04AC726D-E44D-4B07-9767-D903AB6A84FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04AC726D-E44D-4B07-9767-D903AB6A84FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04AC726D-E44D-4B07-9767-D903AB6A84FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04AC726D-E44D-4B07-9767-D903AB6A84FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3160A9C-4296-4003-976B-9371520F9799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3160A9C-4296-4003-976B-9371520F9799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3160A9C-4296-4003-976B-9371520F9799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3160A9C-4296-4003-976B-9371520F9799}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Cargowire.CIBridge.ProjectStatus>
+@{
+    ViewBag.Title = "Build Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Project</th>
+			<th>Activity</th>
+			<th>Last Build</th>
+			<th>Date</th>
+			<th>Force</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var ps in Model)
+		{
+			<tr>
+				<td>@ps.Name</td><td>@ps.Activity</td><td>@ps.LastBuildStatus</td><td>@ps.LastBuildDate</td>
+				<td>
+				@if (ps.Activity == "Sleeping")
+				{
+					using (Html.BeginForm("Build", "Projects", new { name = @ps.Name }, FormMethod.Post))
+					{
+						<input type="submit" name="Force" value="Force" />
+					}
+				}
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
