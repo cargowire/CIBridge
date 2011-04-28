@@ -7,8 +7,8 @@ Currently implemented for CodebaseHq and CCNet
 ## Installation
 
 * Pull from git
-** Download the nuget command line tool http://nuget.codeplex.com/releases/58939/download/222685
-** From the solution root run 'nuget i Cargowire.CIBridge\packages.config -o packages' to pull/update dependencies
+* Download the nuget command line tool http://nuget.codeplex.com/releases/58939/download/222685
+* From the solution root run 'nuget i Cargowire.CIBridge\packages.config -o packages' to pull/update dependencies
 * Ensure that the configuration AppSettings are correct for the CCNet server
 * Run as a public website
 * Create a hook within CodebaseHq
