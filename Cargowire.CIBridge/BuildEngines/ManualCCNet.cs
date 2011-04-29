@@ -22,11 +22,12 @@ namespace Cargowire.CIBridge
 
 		public override void ForceBuild(string projectName)
 		{
-			WebRequest wr = WebRequest.Create(string.Concat(Url,"/ViewFarmReport.aspx"));
+			HttpWebRequest wr = WebRequest.Create(string.Concat(Url,"/ViewFarmReport.aspx")) as HttpWebRequest;
 			wr.Method = "post";
 			wr.ContentType = "application/x-www-form-urlencoded";
-			if(this.Credentials != null)
+			if (this.Credentials != null)
 				wr.Credentials = this.Credentials;
+				
 			string body = string.Format("ForceBuild=true&projectName={0}&serverName={1}", projectName, this.Server);
 			byte[] bodyBytes = Encoding.UTF8.GetBytes(body);
 			wr.ContentLength = bodyBytes.Length;
@@ -35,6 +36,7 @@ namespace Cargowire.CIBridge
 				dataStream.Write(bodyBytes, 0, bodyBytes.Length);
 				dataStream.Close();
 			}
+			wr.GetResponse();
 		}
 
 		public override IEnumerable<ProjectStatus> GetStatus()
