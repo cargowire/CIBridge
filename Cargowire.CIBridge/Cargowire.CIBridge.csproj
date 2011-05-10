@@ -53,6 +53,7 @@
     <Compile Include="BuildEngines\CCNet.cs" />
     <Compile Include="BuildEngines\CCNetBase.cs" />
     <Compile Include="BuildEngines\IBuildEngine.cs" />
+    <Compile Include="Branch.cs" />
     <Compile Include="HookParsers\CodebaseHqHookParser.cs" />
     <Compile Include="Commit.cs" />
     <Compile Include="HookParsers\GitHubHookParser.cs" />
