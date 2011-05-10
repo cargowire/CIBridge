@@ -26,7 +26,16 @@ namespace Cargowire.CIBridge
 			this.Credentials = credentials;
 		}
 
+		protected string NegotiateProjectName(string projectName, Branch branch)
+		{
+			if(branch != null && !branch.IsMaster && !string.IsNullOrEmpty(branch.Name))
+				return string.Concat(projectName, "/", branch.Name);
+			else
+				return projectName;
+		}
+
 		public abstract void ForceBuild(string projectName);
+		public abstract void ForceBuild(string projectName, Branch branch);
 		public abstract IEnumerable<ProjectStatus> GetStatus();
 	}
 }

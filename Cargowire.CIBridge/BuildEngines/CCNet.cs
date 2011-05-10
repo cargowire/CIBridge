@@ -16,6 +16,11 @@ namespace Cargowire.CIBridge
 
 		public override void ForceBuild(string projectName)
 		{
+			ForceBuild(projectName, null);
+		}
+		public override void ForceBuild(string projectName, Branch branch)
+		{
+			projectName = NegotiateProjectName(projectName, branch);
 			Open("/ViewFarmReport.aspx").Request(projectName, new IntegrationRequest(BuildCondition.ForceBuild, Source, User));
 		}
 
