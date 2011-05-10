@@ -59,8 +59,8 @@ namespace CIBridge.Web.Controllers
 				if (hi.Count() > 0)
 				{
 					IBuildEngine engine = GetBuildEngine();
-					Log(string.Concat("Repository: ", hi.First().Repository.Name));
-					engine.ForceBuild(hi.First().Repository.Name);
+					Log(string.Concat("Repository: ", hi.First().Repository.Name, "(", (hi.First().Branch ?? new Branch()).Name, ")"));
+					engine.ForceBuild(hi.First().Repository.Name, hi.First().Branch);
 				}
 				Log(Environment.NewLine);
 			}
