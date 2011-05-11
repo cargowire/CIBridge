@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Net;
 
 using ThoughtWorks.CruiseControl.Remote;
@@ -29,7 +30,7 @@ namespace Cargowire.CIBridge
 		protected string NegotiateProjectName(string projectName, Branch branch)
 		{
 			if(branch != null && !branch.IsMaster && !string.IsNullOrEmpty(branch.Name))
-				return string.Concat(projectName, "/", branch.Name);
+				return string.Format(ConfigurationSettings.AppSettings["BuildProjectNameFormat"], projectName, branch.Name);
 			else
 				return projectName;
 		}
