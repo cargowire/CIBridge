@@ -25,8 +25,9 @@ namespace Cargowire.CIBridge.HookParsers
 				}
 				r.Commits = commits;
 				string branchName = (string)(JValue)o["ref"];
+				string branchFullName = branchName;
 				branchName = branchName.Substring(branchName.LastIndexOf("/") + 1);
-				return new List<HookInfo>(new HookInfo[] { new HookInfo { Branch = new Branch { Name = branchName, IsMaster = (string.Compare(branchName, "master", true) == 0) }, User = u, Repository = r } });
+				return new List<HookInfo>(new HookInfo[] { new HookInfo { Branch = new Branch { Name = branchName, FullName = branchFullName, IsMaster = (string.Compare(branchName, "master", true) == 0) }, User = u, Repository = r } });
 			}
 			return null;
 		}
