@@ -20,14 +20,20 @@ namespace CIBridge.Web.Controllers
 		public string CCNetServerUsername { get { return ConfigurationManager.AppSettings["CCNetServerUsername"]; } }
 		public string CCNetServerPassword { get { return ConfigurationManager.AppSettings["CCNetServerPassword"]; } }
 
+		public string TeamCityUrl { get { return ConfigurationManager.AppSettings["TeamCityUrl"]; } }
+		public string TeamCityUsername { get { return ConfigurationManager.AppSettings["TeamCityUsername"]; } }
+		public string TeamCityPassword { get { return ConfigurationManager.AppSettings["TeamCityPassword"]; } }
+
 		public IBuildEngine GetBuildEngine()
 		{
 			IBuildEngine engine;
-			if (!string.IsNullOrEmpty(CCNetServerUsername))
-				//engine = new CCNet(CCNetUrl, CCNetServer, CCNetUser, CCNetSource, new System.Net.NetworkCredential(CCNetServerUsername, CCNetServerPassword));
+			if (!string.IsNullOrEmpty(TeamCityUrl))
+			{
+				engine = new TeamCity(new Uri(TeamCityUrl), TeamCityUsername, TeamCityPassword);
+			}
+			else if (!string.IsNullOrEmpty(CCNetServerUsername))
 				engine = new ManualCCNet(CCNetUrl, CCNetServer, CCNetUser, CCNetSource, new System.Net.NetworkCredential(CCNetServerUsername, CCNetServerPassword));
 			else
-				//engine = new CCNet(CCNetUrl, CCNetUser, CCNetSource);
 				engine = new ManualCCNet(CCNetUrl, CCNetServer, CCNetUser, CCNetSource);
 				
 			return engine;
