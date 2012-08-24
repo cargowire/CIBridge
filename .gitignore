@@ -1,0 +1,11 @@
+*.suo
+*.user
+*.vssscc
+*.vspscc
+bin
+obj
+.DS_Store
+packages/
+_ReSharper*/
+*.Publish.xml
+*.Tests.xml
