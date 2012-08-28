@@ -32,7 +32,7 @@ namespace Cargowire.CIBridge
 			var client = Open();
 			BuildConfig config = client.BuildConfigByConfigurationName(projectName);
 
-			HttpWebRequest wr = WebRequest.Create(string.Concat(Url, string.Format("/httpAuth/action.html?add2Queue={0}&branch_project3={1}", config.Id, (branch.IsMaster) ? "<default>" : branch.FullName))) as HttpWebRequest;
+			HttpWebRequest wr = WebRequest.Create(string.Concat(Url, string.Format("/httpAuth/action.html?add2Queue={0}&branch_project3={1}", config.Id, (branch == null || branch.IsMaster) ? "<default>" : branch.FullName))) as HttpWebRequest;
 			wr.Method = "post";
 			wr.ContentType = "application/x-www-form-urlencoded";
 			wr.Credentials = new NetworkCredential(this.Username, this.Password);
