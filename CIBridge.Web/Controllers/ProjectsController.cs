@@ -73,6 +73,8 @@ namespace CIBridge.Web.Controllers
 			catch (Exception ex)
 			{
 				Log(string.Concat("Error:", ex.Message));
+				if(ex.InnerException != null)
+					Log(string.Concat("Inner Error:", ex.InnerException.Message));
 				throw;
 			}
 			
